@@ -1,19 +1,26 @@
 import React from 'react';
 import {Field, reduxForm } from 'redux-form';
+import renderField from './renderField';
+import validate from '../validators';
 
 export class LoginForm extends React.Component{
+  submit = (values) => {
+    values.preventDefault();
+    console.log(values.currentTarget.username.value);
+    console.log(values.currentTarget.password.value);
+  }
   render(){
     return(
-      <form>
-        <label htmlFor='username'>Username</label>
-        <Field name='username' component='input' type='text' />
-        <label htmlFor='password'>Password</label>
-        <Field name='password' component='input' type='text' />
+      <form onSubmit={this.submit}>
+        <Field name='username' component={renderField} type='text' label='Username'/>
+        <Field name='password' component={renderField} type='text' label='Password'/>
+        <button type='submit'>Login</button>
       </form>
     )  
   }
 }
 
 export default reduxForm({
-  form: 'login'
+  form: 'login',
+  validate
 })(LoginForm);
