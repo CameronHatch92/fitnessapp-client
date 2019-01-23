@@ -5,15 +5,22 @@ const renderField = ({
   label,
   type,
   meta: {touched, error, warning}
-}) => (
+}) => {
+  let errorDiv = touched && error ? error : " ";
+  const errorStyle = {
+    color: 'red',
+    height: '1em'
+  };
+  return(
   <div>
     <label>{label}</label>
     <div>
       <input {...input} placeholder={label} type={type} />
-      {touched && 
-      (error && <span>{error}</span>)}
+      <div className='errorDiv' style={errorStyle}>
+        {errorDiv}
+      </div>
     </div>
   </div>
-);
+)};
 
 export default renderField;
