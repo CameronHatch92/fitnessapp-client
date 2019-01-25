@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LoginForm from './components/login-form';
 import SignupForm from './components/signup-form';
+import AddGoalForm from './components/addGoal-form';
 import './App.css';
 
 class App extends Component {
@@ -9,6 +10,7 @@ class App extends Component {
       <div className="App">
         <LoginForm />
         <SignupForm />
+        <AddGoalForm />
       </div>
     );
   }
