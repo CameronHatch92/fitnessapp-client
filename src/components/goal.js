@@ -4,6 +4,15 @@ import './goal.css';
 export default class Goal extends React.Component{
   constructor(props){
     super(props);
+    this.state = {
+      complete: this.props.complete
+    }
+  }
+
+  setComplete(e){
+    this.setState({
+      complete: e.currentTarget.value
+    })
   }
   render(){
     return(
@@ -14,7 +23,7 @@ export default class Goal extends React.Component{
           {`${this.props.complete*100/this.props.goal}%`}
           </div>
         </div>
-        <input type='number' placeholder={this.props.complete} min={0} max={this.props.goal}></input><span>{` ${this.props.unit}`}</span>
+        <input type='number' value={this.state.complete} onChange={e => this.setComplete(e)} min={0} max={this.props.goal}></input><span>{` ${this.props.unit}`}</span>
       </div>
     )
   }
