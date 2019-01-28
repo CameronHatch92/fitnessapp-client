@@ -3,5 +3,12 @@
 }
 
 .graph{
-  background-color: red;
+  background-color: lightgray;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.goal{
+  width: 90%;
+
 }

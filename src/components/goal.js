@@ -7,14 +7,14 @@ export default class Goal extends React.Component{
   }
   render(){
     return(
-      <div>
+      <div className='goal'>
         <h3>{this.props.title}</h3>
         <div className='graph'>
           <div className='progress-bar' style={{width: `${this.props.complete*100/this.props.goal}%`}}>
-          Progress
+          {`${this.props.complete*100/this.props.goal}%`}
           </div>
-          Here is your progress
         </div>
+        <input type='number' placeholder={this.props.complete} min={0} max={this.props.goal}></input><span>{` ${this.props.unit}`}</span>
       </div>
     )
   }
